@@ -14,12 +14,25 @@ const config: Config = {
       },
       height: {
         760: "760px",
+        2: "2px",
+        14: "14px",
+        25: "25px",
+      },
+      width: {
+        25: "25px",
       },
       top: {
         "50%": "50%",
       },
       left: {
         "50%": "50%",
+      },
+      inset: {
+        "24": "24px",
+        "29": "29px",
+      },
+      borderRadius: {
+        "182": "182px",
       },
       translate: {
         "-50%": "-50%",
@@ -36,16 +49,12 @@ const config: Config = {
         wide: ".039375em",
         wider: ".05em",
         widest: ".1em",
-        "5.6": "5.6px",
+        "6": "6.4px",
+        "5": "5.6px",
       },
       lineHeight: {
         "9": "9px",
-        "25": "25px", // Définissez votre hauteur de ligne personnalisée
-      },
-      fontFamily: {
-        montserrat: ["Montserrat", "sans"], // Définissez votre fonte Montserrat personnalisée
-        montserratSemiBold: ["Montserrat-SemiBold", "sans"], // Définissez votre fonte Montserrat semi-bold personnalisée
-        montserratBold: ["Montserrat-Bold", "sans"], // Définissez votre fonte Montserrat bold personnalisée
+        "25": "25px",
       },
       margin: {
         "1.46": "1.46px",
