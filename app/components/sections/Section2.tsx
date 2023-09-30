@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { forwardRef, Ref, HTMLProps } from "react";
 import localFont from "next/font/local";
 
 //Fonts
@@ -18,10 +19,10 @@ import GreyButton from "../buttons/GreyButton";
 
 const styleH2Section2 = `text-40 leading-40 ${myFontSamsungSharpBold.className}`;
 
-const Section2 = () => {
+const Section2 = React.forwardRef<HTMLInputElement>((props, ref) => {
   return (
     // mb de 150 pour compenser les mt 32 + 16 et les 112.5 de marge avec la section 3
-    <section className="w-full relative mb-150 pl-16 pr-16">
+    <section ref={ref} className="w-full relative mb-150 pl-16 pr-16">
       <h1 className={`pt-51 text-32 leading-32 text-cyan ${myFontTigerWalk.className}`}>
         TARAWA HOTEL 5 ÉTOILES
       </h1>
@@ -40,6 +41,6 @@ const Section2 = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Section2;

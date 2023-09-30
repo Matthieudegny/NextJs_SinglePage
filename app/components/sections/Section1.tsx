@@ -14,9 +14,9 @@ import logoFirst from "../../../public/loader-logo-animated2.png";
 //components
 import BlueButton from "../buttons/BlueButton";
 
-const Section1 = () => {
+const Section1 = React.forwardRef<HTMLInputElement>((props, ref) => {
   return (
-    <section className="h-screen w-full relative">
+    <section ref={ref} className="h-screen w-full relative">
       <div className="h-14 w-25 absolute top-29 left-24 flex flex-col justify-around z-20">
         <div className="w-full h-2 bg-white rounded-182"></div>
         <div className="w-full h-2 bg-white rounded-182"></div>
@@ -33,7 +33,7 @@ const Section1 = () => {
 
       <div className="h-screen flex flex-col justify-center items-center">
         <div className="z-20">
-          <Image src={logoFirst} alt="logo animated first page" width={87} quality={100} />
+          <Image priority src={logoFirst} alt="logo animated first page" width={87} quality={100} />
         </div>
         <h1
           className={`mt-11.18 text-white text-21 tracking-6 leading-25 ${myFontMontserrat_SemiBold.className} z-20`}
@@ -48,6 +48,6 @@ const Section1 = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Section1;

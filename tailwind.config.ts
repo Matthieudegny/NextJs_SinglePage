@@ -14,6 +14,9 @@ const config: Config = {
         "gradient-left-to-right": "linear-gradient(180deg, #00CBCB 0%, #009F9F 100%)",
         "gradient-grey": "linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%)",
       },
+      backgroundColor: {
+        blackLighter: "#3B3B3B",
+      },
       textColor: {
         cyan: "#009F9F", // Ajoutez votre couleur de texte personnalisée
         blackLighter: "#3B3B3B",
