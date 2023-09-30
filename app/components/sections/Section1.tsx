@@ -1,6 +1,5 @@
 import React from "react";
 import localFont from "next/font/local";
-import logoFirst from "../../../public/loader-logo-animated2.png";
 import Image from "next/image";
 
 const myFontMontserrat_SemiBold = localFont({
@@ -9,6 +8,8 @@ const myFontMontserrat_SemiBold = localFont({
 const myFontMontserrat_Bold = localFont({
   src: "../../../public/webfonts/Montserrat/static/Montserrat-Bold.ttf",
 });
+
+import logoFirst from "../../../public/loader-logo-animated2.png";
 
 //components
 import BlueButton from "../buttons/BlueButton";
