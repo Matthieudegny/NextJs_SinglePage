@@ -12,7 +12,7 @@ const myFontSamsungOne = localFont({
 //components
 import GreyButton from "./buttons/GreyButton";
 
-type MainSection3Props = {
+type ArticleSection3Props = {
   time: string;
   title: string;
   titleButon: string;
@@ -25,7 +25,7 @@ type MainSection3Props = {
 const videoLink1 = require("../../public/timeline-01.mp4");
 const videoLink2 = require("../../public/timeline-05.mp4");
 
-const MainSection3: React.FC<MainSection3Props> = ({
+const ArticleSection3: React.FC<ArticleSection3Props> = ({
   time,
   title,
   titleButon,
@@ -39,7 +39,7 @@ const MainSection3: React.FC<MainSection3Props> = ({
   const bottomPositionBar = videoLink === 1 ? "-bottom-64" : "-bottom-10";
 
   return (
-    <div className={`${marginTopMainSection}`}>
+    <article className={`${marginTopMainSection}`}>
       {/*  heure + titre + bouton + traits de finition verticaux*/}
       <div className="relative h-274 w-full flex-col items-center">
         <div
@@ -63,8 +63,8 @@ const MainSection3: React.FC<MainSection3Props> = ({
           <source src={linkVideo} type="video/mp4" />
         </video>
       </div>
-    </div>
+    </article>
   );
 };
 
-export default MainSection3;
+export default ArticleSection3;

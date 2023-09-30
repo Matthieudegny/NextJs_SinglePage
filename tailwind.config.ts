@@ -17,6 +17,7 @@ const config: Config = {
       textColor: {
         cyan: "#009F9F", // Ajoutez votre couleur de texte personnalisée
         blackLighter: "#3B3B3B",
+        backgroundSection4: "#F9F9F9",
       },
       height: {
         760: "760px",
@@ -32,6 +33,7 @@ const config: Config = {
         306: "306px",
         360: "360px",
         384: "384px",
+        475: "475px",
         607: "607.5px",
       },
       width: {
@@ -39,7 +41,11 @@ const config: Config = {
         25: "25px",
         138: "138px",
         214: "214px",
+        228: "228px",
         270: "270px",
+        360: "360px",
+        600: "600px",
+        3000: "3000px",
       },
       top: {
         "50%": "50%",
@@ -58,10 +64,12 @@ const config: Config = {
         24: "24px",
         30: "30px",
         32: "32px",
-        "50%": "50%",
+        41: "41px",
         51: "51px",
         64: "64px",
+        102: "102px",
         112: "112.5px",
+        117: "117px",
         150: "150.5px", // Ajoutez une valeur de padding left personnalisée
       },
       borderRadius: {
@@ -78,6 +86,7 @@ const config: Config = {
         24: "24px",
         32: "32px",
         40: "40px",
+        42: "42px",
         96: "96px",
       },
       letterSpacing: {
@@ -97,6 +106,7 @@ const config: Config = {
         "25": "25px",
         32: "32px",
         40: "40px",
+        53: "53px",
       },
       margin: {
         "1.46": "1.46px",

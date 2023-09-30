@@ -1,12 +1,12 @@
 import React from "react";
 
 //compoenents
-import MainSection3 from "../MainSection3";
+import ArticleSection3 from "../ArticleSection3";
 
 const Section3 = () => {
   return (
     <section>
-      <MainSection3
+      <ArticleSection3
         time={"10:12"}
         title={"Un réveil en douceur"}
         titleButon={"Voir les chambres"}
@@ -15,7 +15,7 @@ const Section3 = () => {
         marginTopVideo={"mt-64"}
         marginTopMainSection={"mt-0"}
       />
-      <MainSection3
+      <ArticleSection3
         time={"21:57"}
         title={"Soleil, mer, détente"}
         titleButon={"Voir les offres"}
