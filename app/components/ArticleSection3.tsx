@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import localFont from "next/font/local";
 
 //Fonts
@@ -34,32 +34,57 @@ const ArticleSection3: React.FC<ArticleSection3Props> = ({
   marginTopVideo,
   marginTopMainSection,
 }) => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const toggleVideo = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  };
+
   const linkVideo = videoLink === 1 ? videoLink1 : videoLink2;
   const heightBar = videoLink === 1 ? "h-64" : "h-10";
+  const heightBarDesktop = videoLink === 1 ? "h-192" : "h-145";
   const bottomPositionBar = videoLink === 1 ? "-bottom-64" : "-bottom-10";
+  const marginBottomFirstVideo = videoLink === 1 ? "pb-64" : "";
+  const displayNotMobile = videoLink === 1 ? "md:flex " : "md:flex md:flex-row-reverse";
+  const heightArtcile = videoLink === 1 ? "xl:h-640" : "xl:h-1136";
+  const widthButton = videoLink === 1 ? "w-214" : "w-176";
+  const widthTitleDesktop = videoLink === 1 ? "xl:w-302 " : "xl:w-408";
 
   return (
-    <article className={`${marginTopMainSection}`}>
-      {/*  heure + titre + bouton + traits de finition verticaux*/}
-      <div className="relative h-274 w-full flex-col items-center">
+    <article
+      className={`relative ${marginTopMainSection} ${displayNotMobile} ${heightArtcile} md:justify-around md:items-center xl:justify-end `}
+    >
+      <div className={`absolute ${heightBarDesktop} xl:w-2 bg-slate-100 -bottom-192 left-50%`}></div>
+      <div className="relative h-274  flex-col items-center xl:mx-auto xl:pl-14 ">
         <div
-          className={`flex justify-center items-center h-114 text-cyan text-96 ${myFontTigerWalk.className}`}
+          className={`flex justify-center items-center h-114 text-cyan text-96 xl:text-123 ${myFontTigerWalk.className}`}
         >
           {time}
         </div>
         <div
-          className={`flex justify-center mt-16 text-blackLighter text-24 leading-32 ${myFontSamsungOne.className}`}
+          className={`flex justify-center mt-16 text-blackLighter text-24 xl:text-42 leading-32 xl:leading-42 xl:text-center ${widthTitleDesktop} ${myFontSamsungOne.className}`}
         >
           {title}
         </div>
         <div className="flex justify-center">
-          <GreyButton title={titleButon} width={"w-270"} marginTop={"mt-24"} />
+          <GreyButton title={titleButon} width={widthButton} marginTop={"mt-24"} />
         </div>
-        <div className="absolute h-64 w-2 bg-slate-100 -top-64 left-50%"></div>
-        <div className={`absolute ${heightBar} w-2 bg-slate-100 ${bottomPositionBar} left-50%`}></div>
+        <div className="absolute h-64 w-2 md:w-0 bg-slate-100 -top-64 left-50%"></div>
+        <div className={`absolute ${heightBar} w-2  md:w-0 bg-slate-100 ${bottomPositionBar} left-50%`}></div>
       </div>
-      <div className={`${marginTopVideo}`}>
-        <video loop muted className={`w-full ${heightVideo} object-cover`}>
+      <div onClick={toggleVideo} className={`${marginTopVideo}  ${marginBottomFirstVideo}`}>
+        <video
+          ref={videoRef}
+          loop
+          muted
+          className={`w-full ${heightVideo} xl:w-1136  object-cover md:rounded-16`}
+        >
           <source src={linkVideo} type="video/mp4" />
         </video>
       </div>

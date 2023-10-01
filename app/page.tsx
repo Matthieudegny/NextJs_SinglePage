@@ -46,7 +46,7 @@ export default function Home() {
     <main>
       <Nav navVisible={navVisible} isDesktop={isDesktop} />
       <Section1 ref={refSection1} isDesktop={isDesktop} />
-      <Section2 />
+      <Section2 isDesktop={isDesktop} />
       <Section3 ref={refSection3} />
       <Section4 />
       <Footer />

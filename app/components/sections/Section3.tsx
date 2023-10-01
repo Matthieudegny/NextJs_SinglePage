@@ -11,7 +11,7 @@ const Section3 = React.forwardRef<HTMLInputElement>((props, ref) => {
         title={"Un réveil en douceur"}
         titleButon={"Voir les chambres"}
         videoLink={1}
-        heightVideo={"h-206"}
+        heightVideo={"h-206 md:h-360 xl:h-640"}
         marginTopVideo={"mt-64"}
         marginTopMainSection={"mt-0"}
       />
@@ -20,9 +20,9 @@ const Section3 = React.forwardRef<HTMLInputElement>((props, ref) => {
         title={"Soleil, mer, détente"}
         titleButon={"Voir les offres"}
         videoLink={2}
-        heightVideo={"h-360"}
+        heightVideo={"h-360 xl:h-1136"}
         marginTopVideo={"mt-10"}
-        marginTopMainSection={"mt-64"}
+        marginTopMainSection={"mt-64 xl:mt-192"}
       />
     </section>
   );

@@ -22,17 +22,17 @@ type Section1Props = {
 
 const Section1 = React.forwardRef<HTMLInputElement, Section1Props>((props, ref) => {
   return (
-    <section ref={ref} className="h-screen w-full relative overflow-hidden">
+    <section ref={ref} className="h-screen w-full relative">
       {props.isDesktop ? (
         <NavDesktop position={"absolute"} color={"text-white"} />
       ) : (
         <NavMobile position={"absolute"} color={"bg-white"} />
       )}
-      <div className="absolute right-8 top-8 sm:top-32 sm:right-32 z-20">
+      <div className={`${props.isDesktop ? "fixed" : "absolute"} right-8 top-8 sm:top-32 sm:right-32 z-20`}>
         <BlueButton title={"Réserver"} width={"w-138"} />
       </div>
 
-      <video loop muted className=" absolute top-0 left-0 w-full h-screen object-cover z-0">
+      <video loop muted autoPlay className="absolute top-0 left-0 w-full h-screen object-cover z-0">
         <source src={require("../../../public/teaser_header.mp4")} type="video/mp4" />
       </video>
 
