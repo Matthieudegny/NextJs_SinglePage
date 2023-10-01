@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundAttachment: {
+        fixed: "fixed",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
@@ -69,11 +72,16 @@ const config: Config = {
         16: "16px",
         24: "24px",
         30: "30px",
-        32: "32px",
+        32: "32.37px",
+        33: "33px",
+        38: "38.32px",
         41: "41px",
+        45: "44px",
         48: "48px",
         "50%": "50%",
+        50: "50px",
         51: "51px",
+        54: "54.63px",
         64: "64px",
         80: "80px",
         95: "95px",

@@ -1,11 +1,11 @@
-import React from "react";
-
+"use client";
+import React, { forwardRef, Ref, HTMLProps } from "react";
 //compoenents
 import ArticleSection3 from "../ArticleSection3";
 
-const Section3 = () => {
+const Section3 = React.forwardRef<HTMLInputElement>((props, ref) => {
   return (
-    <section>
+    <section ref={ref}>
       <ArticleSection3
         time={"10:12"}
         title={"Un réveil en douceur"}
@@ -26,6 +26,6 @@ const Section3 = () => {
       />
     </section>
   );
-};
+});
 
 export default Section3;
