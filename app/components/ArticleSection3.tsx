@@ -49,6 +49,7 @@ const ArticleSection3: React.FC<ArticleSection3Props> = ({
   const linkVideo = videoLink === 1 ? videoLink1 : videoLink2;
   const heightBar = videoLink === 1 ? "h-64" : "h-10";
   const heightBarDesktop = videoLink === 1 ? "h-192" : "h-145";
+  const positionBarDesktop = videoLink === 1 ? "-bottom-192" : "-bottom-145";
   const bottomPositionBar = videoLink === 1 ? "-bottom-64" : "-bottom-10";
   const marginBottomFirstVideo = videoLink === 1 ? "pb-64" : "";
   const displayNotMobile = videoLink === 1 ? "md:flex " : "md:flex md:flex-row-reverse";
@@ -60,7 +61,9 @@ const ArticleSection3: React.FC<ArticleSection3Props> = ({
     <article
       className={`relative ${marginTopMainSection} ${displayNotMobile} ${heightArtcile} md:justify-around md:items-center xl:justify-end `}
     >
-      <div className={`absolute ${heightBarDesktop} xl:w-2 bg-slate-100 -bottom-192 left-50%`}></div>
+      <div
+        className={`absolute ${heightBarDesktop} xl:w-2 bg-slate-100 ${positionBarDesktop} left-50%`}
+      ></div>
       <div className="relative h-274  flex-col items-center xl:mx-auto xl:pl-14 ">
         <div
           className={`flex justify-center items-center h-114 text-cyan text-96 xl:text-123 ${myFontTigerWalk.className}`}
@@ -68,7 +71,7 @@ const ArticleSection3: React.FC<ArticleSection3Props> = ({
           {time}
         </div>
         <div
-          className={`flex justify-center mt-16 text-blackLighter text-24 xl:text-42 leading-32 xl:leading-42 xl:text-center ${widthTitleDesktop} ${myFontSamsungOne.className}`}
+          className={`flex justify-center mt-16 text-blackLighter text-24 xl:text-42 leading-32 xl:leading-42 sm:text-center ${widthTitleDesktop} ${myFontSamsungOne.className}`}
         >
           {title}
         </div>
