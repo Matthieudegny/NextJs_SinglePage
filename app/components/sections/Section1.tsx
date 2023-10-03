@@ -17,18 +17,18 @@ import NavMobile from "../Nav/NavMobile";
 import NavDesktop from "../Nav/NavDesktop";
 
 type Section1Props = {
-  isDesktop: boolean;
+  isTablet: boolean;
 };
 
 const Section1 = React.forwardRef<HTMLInputElement, Section1Props>((props, ref) => {
   return (
     <section ref={ref} className="h-screen w-full relative">
-      {props.isDesktop ? (
+      {props.isTablet ? (
         <NavDesktop position={"absolute"} color={"text-white"} />
       ) : (
         <NavMobile position={"absolute"} color={"bg-white"} />
       )}
-      <div className={`${props.isDesktop ? "fixed" : "absolute"} right-8 top-8 sm:top-32 sm:right-32 z-20`}>
+      <div className={`${props.isTablet ? "fixed" : "absolute"} right-8 top-8 sm:top-32 sm:right-32 z-20`}>
         <BlueButton title={"Réserver"} width={"w-138"} />
       </div>
 
@@ -42,7 +42,7 @@ const Section1 = React.forwardRef<HTMLInputElement, Section1Props>((props, ref) 
             priority
             src={logoFirst}
             alt="logo animated first page"
-            width={props.isDesktop ? 144 : 87}
+            width={props.isTablet ? 144 : 87}
             quality={100}
           />
         </div>

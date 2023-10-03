@@ -1,5 +1,7 @@
-import React, { useRef } from "react";
+"use client";
+import React, { useRef, useEffect, useState } from "react";
 import localFont from "next/font/local";
+import { useInView } from "react-intersection-observer";
 
 //Fonts
 const myFontTigerWalk = localFont({
@@ -46,6 +48,14 @@ const ArticleSection3: React.FC<ArticleSection3Props> = ({
     }
   };
 
+  const [refTime, inViewTime] = useInView({
+    threshold: 0.5,
+  });
+  const [displayTime, setdisplayTime] = useState(false);
+  useEffect(() => {
+    if (inViewTime) setdisplayTime(true);
+  }, [inViewTime]);
+
   const linkVideo = videoLink === 1 ? videoLink1 : videoLink2;
   const heightBar = videoLink === 1 ? "h-64" : "h-10";
   const heightBarDesktop = videoLink === 1 ? "h-192" : "h-145";
@@ -64,7 +74,16 @@ const ArticleSection3: React.FC<ArticleSection3Props> = ({
       <div
         className={`absolute ${heightBarDesktop} xl:w-2 bg-slate-100 ${positionBarDesktop} left-50%`}
       ></div>
-      <div className="relative h-274  flex-col items-center xl:mx-auto xl:pl-14 ">
+      <div
+        ref={refTime}
+        style={{
+          willChange: "opacity transform",
+          transition: "all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) 0s",
+          transform: displayTime ? "translateX(0)" : "translateY(50px)",
+          opacity: displayTime ? 1 : 0,
+        }}
+        className="relative h-274  flex-col items-center xl:mx-auto xl:pl-14"
+      >
         <div
           className={`flex justify-center items-center h-114 text-cyan text-96 xl:text-123 ${myFontTigerWalk.className}`}
         >
@@ -86,7 +105,7 @@ const ArticleSection3: React.FC<ArticleSection3Props> = ({
           ref={videoRef}
           loop
           muted
-          className={`w-full ${heightVideo} xl:w-1136  object-cover md:rounded-16`}
+          className={`w-full ${heightVideo} xl:w-1136  object-cover md:rounded-16 cursor-pointer`}
         >
           <source src={linkVideo} type="video/mp4" />
         </video>
