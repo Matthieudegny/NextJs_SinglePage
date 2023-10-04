@@ -33,8 +33,10 @@ const H5AndText: React.FC<H5AndTextProps> = ({ title, text }) => {
   );
 };
 
-const videoLink1 = require("../../../public/slideshow-02.mp4");
-const videoLink2 = require("../../../public/slideshow-06.mp4");
+const videoLink1 =
+  "https://player.vimeo.com/progressive_redirect/playback/867835899/rendition/720p/file.mp4?loc=external&signature=95238a92782907c9dc2b48e7a3868028eb9927cea7c579a285f109ac75c3fe0a";
+const videoLink2 =
+  "https://player.vimeo.com/progressive_redirect/playback/867835928/rendition/720p/file.mp4?loc=external&signature=037354ab676f274d7ef899b0cace09629ae93351545d3fe9bcc55b8dbf93decd";
 
 type h5andTextAndVideoProps = {
   title: string;
@@ -137,7 +139,12 @@ const Section4: React.FC<Section4Props> = ({ isDesktop }) => {
             </article>
             <article className="flex w-[618px] lg:w-[1100px] h-full ml-123 lg:mt-131 lg:ml-193">
               <div className="h-360 w-228 lg:h-540 lg:w-424 relative">
-                <Image src={secondImage} alt="brakefirst on table" fill={true} className="rounded-8" />
+                <Image
+                  src={secondImage}
+                  alt="brakefirst on table"
+                  fill={true}
+                  className="rounded-8"
+                />
               </div>
               <div className="w-390 h-full pl-48 flex-col">
                 <H5AndText
@@ -151,7 +158,12 @@ const Section4: React.FC<Section4Props> = ({ isDesktop }) => {
             </article>
             <article className="flex w-390 lg:w-580 h-full ml-48 lg:ml-96 lg:mr-193">
               <div className="w-330 h-195 lg:h-368 lg:w-580 mt-64 lg:mt-262 relative">
-                <Image src={thirdImage} alt="brakefirst on table" fill={true} className="rounded-8" />
+                <Image
+                  src={thirdImage}
+                  alt="brakefirst on table"
+                  fill={true}
+                  className="rounded-8"
+                />
               </div>
             </article>
             <article className="flex w-[618px] lg:w-[1100px] h-475 lg:h-795 ml-130 lg:ml-193 mr-48">
@@ -166,7 +178,12 @@ const Section4: React.FC<Section4Props> = ({ isDesktop }) => {
                 />
               </div>
               <div className="h-360 w-228 lg:h-672 lg:w-424 lg:ml-48 mr-70 relative">
-                <Image src={fourthImage} alt="image couple eating" fill={true} className="rounded-8" />
+                <Image
+                  src={fourthImage}
+                  alt="image couple eating"
+                  fill={true}
+                  className="rounded-8"
+                />
               </div>
             </article>
           </motion.div>

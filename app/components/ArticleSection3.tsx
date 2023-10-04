@@ -11,6 +11,8 @@ const myFontSamsungOne = localFont({
   src: "../../public/webfonts/samsungone-400-webfont.woff",
 });
 
+import logoFooter from "../../public/icons8-sun.svg";
+
 //components
 import GreyButton from "./buttons/GreyButton";
 
@@ -24,8 +26,10 @@ type ArticleSection3Props = {
   marginTopMainSection: string;
 };
 
-const videoLink1 = require("../../public/timeline-01.mp4");
-const videoLink2 = require("../../public/timeline-05.mp4");
+const videoLink1 =
+  "https://player.vimeo.com/progressive_redirect/playback/868367652/rendition/1080p/file.mp4?loc=external&signature=33dfcb2bff8b3a17645cf72cdd9c7696ec1cdd8611e50af6cfdcf9d5e1907d06";
+const videoLink2 =
+  "https://player.vimeo.com/progressive_redirect/playback/867835859/rendition/540p/file.mp4?loc=external&signature=d0565ef23ab1c14f685f47a8e19634b25882f3284308e1af0855092bd22a73ac";
 
 const ArticleSection3: React.FC<ArticleSection3Props> = ({
   time,
@@ -98,14 +102,18 @@ const ArticleSection3: React.FC<ArticleSection3Props> = ({
           <GreyButton title={titleButon} width={widthButton} marginTop={"mt-24"} />
         </div>
         <div className="absolute h-64 w-2 md:w-0 bg-slate-100 -top-64 left-50%"></div>
-        <div className={`absolute ${heightBar} w-2  md:w-0 bg-slate-100 ${bottomPositionBar} left-50%`}></div>
+        <div
+          className={`absolute ${heightBar} w-2  md:w-0 bg-slate-100 ${bottomPositionBar} left-50%`}
+        ></div>
       </div>
       <div onClick={toggleVideo} className={`${marginTopVideo}  ${marginBottomFirstVideo}`}>
         <video
           ref={videoRef}
           loop
           muted
-          className={`w-full ${heightVideo} xl:w-1136  object-cover md:rounded-16 cursor-pointer`}
+          className={`w-full ${heightVideo} xl:w-1136  object-cover  ${
+            videoLink === 1 ? "md:rounded-l-16" : "md:rounded-r-16"
+          }  cursor-pointer`}
         >
           <source src={linkVideo} type="video/mp4" />
         </video>

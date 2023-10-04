@@ -48,11 +48,21 @@ export default function Home() {
     let currentScrollY = window.scrollY;
 
     function handleWheel(e: WheelEvent) {
-      const targetY =
-        e.deltaY > 0
-          ? currentScrollY + window.innerHeight / 10
-          : currentScrollY - window.innerHeight / 10;
+      const deltaY = e.deltaY;
 
+      // Calculez la nouvelle position de défilement
+      let targetY = currentScrollY + deltaY;
+
+      // Définissez des limites minimales et maximales
+      const minY = 0; // La position de défilement minimale (en haut de la page)
+      const maxY = document.documentElement.scrollHeight - window.innerHeight; // La position de défilement maximale (en bas de la page)
+
+      // Assurez-vous que targetY reste dans les limites
+      if (targetY < minY) {
+        targetY = minY;
+      } else if (targetY > maxY) {
+        targetY = maxY;
+      }
       gsap.to(window, {
         duration: 1, // Durée de l'animation en secondes
         scrollTo: {
