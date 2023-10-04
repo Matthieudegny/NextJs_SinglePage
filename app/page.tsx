@@ -2,8 +2,10 @@
 import React, { useState, useEffect, useRef } from "react";
 //components
 import { useInView } from "react-intersection-observer";
-import Scrollbar from "smooth-scrollbar";
+import { gsap } from "gsap";
+import ScrollToPlugin from "gsap/ScrollToPlugin"; // Importez le plugin
 
+gsap.registerPlugin(ScrollToPlugin); // Enregistrez le plugin
 import Section1 from "./components/sections/Section1";
 import Section2 from "./components/sections/Section2";
 import Section3 from "./components/sections/Section3";
@@ -41,19 +43,34 @@ export default function Home() {
     inView3 ? setnavVisible(true) : "";
     inView1 ? setnavVisible(false) : "";
   }, [inView3, inView1]);
-  // const options = {
-  //   damping: 0.07,
-  // };
-  // useEffect(() => {
-  //   if (scrollContainerRef.current) {
-  //     Scrollbar.init(document.body, options);
 
-  //     return () => {
-  //       if (Scrollbar) Scrollbar.destroy(document.body);
-  //     };
-  //   }
-  // }, []);
+  useEffect(() => {
+    let currentScrollY = window.scrollY;
 
+    function handleWheel(e: WheelEvent) {
+      const targetY =
+        e.deltaY > 0
+          ? currentScrollY + window.innerHeight / 10
+          : currentScrollY - window.innerHeight / 10;
+
+      gsap.to(window, {
+        duration: 1, // Durée de l'animation en secondes
+        scrollTo: {
+          y: targetY,
+          autoKill: false,
+        },
+        ease: "power3.easeInOut", // Courbe d'animation plus douce
+      });
+
+      currentScrollY = targetY;
+    }
+
+    window.addEventListener("wheel", handleWheel);
+
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
   return (
     <main ref={scrollContainerRef}>
       <Nav navVisible={navVisible} isTablet={isTablet} />
