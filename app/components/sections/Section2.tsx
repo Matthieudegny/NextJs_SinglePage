@@ -37,22 +37,26 @@ const Section2 = React.forwardRef<HTMLInputElement, Section1Props>((props, ref) 
   useEffect(() => {
     if (inViewrefTitleLeft) setdisplayTitle(true);
     if (inViewrefTextRight) setdisplayText(true);
+    console.log("inViewrefTitleLeft", inViewrefTitleLeft);
+    console.log("inViewrefTextRight", inViewrefTextRight);
   }, [inViewrefTitleLeft, inViewrefTextRight]);
 
   const styleH2Section2 = `${props.isTablet ? "text-72 leading-74 sm:w-450" : "text-40 leading-40"}  ${
     myFontSamsungSharpBold.className
   }`;
   return (
-    // mb de 150 pour compenser les mt 32 + 16 et les 112.5 de marge avec la section 3
-    <section className="w-full relative mb-150 pt-51 pl-16 pr-16 sm:pt-107 lg:pl-200 sm:pr-292 xl:pr-0 2xl:pl-200 2xl:flex">
+    <section
+      ref={refTitleLeft}
+      className="w-full mb-150 pt-51 pl-16 pr-16 sm:pt-107 lg:pl-200 sm:pr-292 xl:pr-0 2xl:pl-200 2xl:flex"
+    >
       <div
-        ref={refTitleLeft}
         style={{
           willChange: "opacity transform",
           transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0s",
           transform: displayTitle ? "translateX(0)" : "translateX(-200px)",
           opacity: displayTitle ? 1 : 0,
         }}
+        className="pl-16 pr-16 lg:pl-0 lg:pr-0"
       >
         <h1
           className={`sm:w-450 text-32 sm:text-48 leading-32 sm:leading-50 text-cyan ${myFontTigerWalk.className}`}
@@ -71,7 +75,7 @@ const Section2 = React.forwardRef<HTMLInputElement, Section1Props>((props, ref) 
           transform: displayText ? "translateX(0)" : "translateX(200px)",
           opacity: displayText ? 1 : 0,
         }}
-        className="w-full xl:w-770 h-384 2xl:h-288 mt-16 sm:mt-88 flex flex-col justify-between"
+        className="w-full xl:w-770 h-384 2xl:h-288 mt-16 sm:mt-88 flex flex-col justify-between pl-16 pr-16 lg:pl-0 lg:pr-0 "
       >
         <p
           className={`w-full text-24 xl:text-40 text-blackLighter leading-32 xl:leading-48 xl:ml-208  ${myFontSamsungOne.className}`}

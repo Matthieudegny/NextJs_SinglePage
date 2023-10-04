@@ -11,8 +11,6 @@ const myFontSamsungOne = localFont({
   src: "../../public/webfonts/samsungone-400-webfont.woff",
 });
 
-import logoFooter from "../../public/icons8-sun.svg";
-
 //components
 import GreyButton from "./buttons/GreyButton";
 
@@ -102,9 +100,7 @@ const ArticleSection3: React.FC<ArticleSection3Props> = ({
           <GreyButton title={titleButon} width={widthButton} marginTop={"mt-24"} />
         </div>
         <div className="absolute h-64 w-2 md:w-0 bg-slate-100 -top-64 left-50%"></div>
-        <div
-          className={`absolute ${heightBar} w-2  md:w-0 bg-slate-100 ${bottomPositionBar} left-50%`}
-        ></div>
+        <div className={`absolute ${heightBar} w-2  md:w-0 bg-slate-100 ${bottomPositionBar} left-50%`}></div>
       </div>
       <div onClick={toggleVideo} className={`${marginTopVideo}  ${marginBottomFirstVideo}`}>
         <video

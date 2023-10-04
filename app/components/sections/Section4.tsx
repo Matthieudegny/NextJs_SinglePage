@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import localFont from "next/font/local";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
 
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
@@ -75,11 +76,19 @@ type Section4Props = {
 };
 
 const Section4: React.FC<Section4Props> = ({ isDesktop }) => {
+  const [refTitle, inViewrefTitle] = useInView({
+    threshold: 0.9,
+  });
+  const [displayTitle, setdisplayTitle] = useState(false);
+  useEffect(() => {
+    if (inViewrefTitle) setdisplayTitle(true);
+  }, [inViewrefTitle]);
+
+  //CARROUSSEL
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
-
   // Formule pour calculer x en fonction de w (interpolation linéaire)
   const calculX = (w: number): any => {
     let value = isDesktop ? 1870 - w : 1024 - w;
@@ -87,9 +96,7 @@ const Section4: React.FC<Section4Props> = ({ isDesktop }) => {
     const result = isDesktop ? -3500 + -value : -1700 + -value;
     return result.toFixed(0) + "px"; // Convertir le résultat en string avec l'unité "px"
   };
-
   const [xScroll, setWscroll] = useState<string>(calculX(window.innerWidth));
-
   // Mettre à jour widthWindow lorsque la fenêtre est redimensionnée
   useEffect(() => {
     const handleResize = () => {
@@ -107,11 +114,18 @@ const Section4: React.FC<Section4Props> = ({ isDesktop }) => {
   return (
     <section className="bg-backgroundSection4 lg:mt-145 h-full">
       <h4
+        ref={refTitle}
         className={`lg:max-w-1303 lg:mx-auto pt-117 lg:pt-314 text-42 2xl:text-136 leading-53 lg:leading-170 pl-16 pr-16 text-center ${myFontSamsungSharpBold.className}`}
+        style={{
+          willChange: "opacity",
+          transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s",
+          // transform: displayTitle ? "translateX(0)" : "translateX(-200px)",
+          opacity: displayTitle ? 1 : 0,
+        }}
       >
         Un hôtel pas comme les autres.
       </h4>
-      {/*  relative h-475 lg:h-795  mt-102 mb-71  lg:mb-126  lg:mt-272 */}
+      {/*   h-475 lg:h-795  */}
       <div ref={targetRef} className=" relative h-[300vh] mt-102 pb-71  lg:pb-126  lg:mt-272">
         <div className="sticky flex items-center top-0 left-0 h-screen  overflow-hidden">
           <motion.div style={{ x }} className="flex gap-10">
@@ -139,12 +153,7 @@ const Section4: React.FC<Section4Props> = ({ isDesktop }) => {
             </article>
             <article className="flex w-[618px] lg:w-[1100px] h-full ml-123 lg:mt-131 lg:ml-193">
               <div className="h-360 w-228 lg:h-540 lg:w-424 relative">
-                <Image
-                  src={secondImage}
-                  alt="brakefirst on table"
-                  fill={true}
-                  className="rounded-8"
-                />
+                <Image src={secondImage} alt="brakefirst on table" fill={true} className="rounded-8" />
               </div>
               <div className="w-390 h-full pl-48 flex-col">
                 <H5AndText
@@ -158,12 +167,7 @@ const Section4: React.FC<Section4Props> = ({ isDesktop }) => {
             </article>
             <article className="flex w-390 lg:w-580 h-full ml-48 lg:ml-96 lg:mr-193">
               <div className="w-330 h-195 lg:h-368 lg:w-580 mt-64 lg:mt-262 relative">
-                <Image
-                  src={thirdImage}
-                  alt="brakefirst on table"
-                  fill={true}
-                  className="rounded-8"
-                />
+                <Image src={thirdImage} alt="brakefirst on table" fill={true} className="rounded-8" />
               </div>
             </article>
             <article className="flex w-[618px] lg:w-[1100px] h-475 lg:h-795 ml-130 lg:ml-193 mr-48">
@@ -178,12 +182,7 @@ const Section4: React.FC<Section4Props> = ({ isDesktop }) => {
                 />
               </div>
               <div className="h-360 w-228 lg:h-672 lg:w-424 lg:ml-48 mr-70 relative">
-                <Image
-                  src={fourthImage}
-                  alt="image couple eating"
-                  fill={true}
-                  className="rounded-8"
-                />
+                <Image src={fourthImage} alt="image couple eating" fill={true} className="rounded-8" />
               </div>
             </article>
           </motion.div>
