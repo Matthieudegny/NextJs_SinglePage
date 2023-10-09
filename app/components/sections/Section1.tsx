@@ -28,11 +28,7 @@ const Section1 = React.forwardRef<HTMLInputElement, Section1Props>((props, ref) 
       ) : (
         <NavMobile position={"absolute"} color={"bg-white"} />
       )}
-      <div
-        className={`${
-          props.isTablet ? "fixed" : "absolute"
-        } right-8 top-8 sm:top-32 sm:right-32 z-20`}
-      >
+      <div className={`${props.isTablet ? "fixed" : "absolute"} right-8 top-8 sm:top-32 sm:right-32 z-20`}>
         <BlueButton title={"Réserver"} width={"w-138"} />
       </div>
 
