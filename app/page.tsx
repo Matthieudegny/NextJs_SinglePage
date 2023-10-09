@@ -16,8 +16,8 @@ import Nav from "./components/Nav";
 export default function Home() {
   const scrollContainerRef = useRef(null);
   const [navVisible, setnavVisible] = useState(false);
-  const [isTablet, setIsTablet] = useState(window.innerWidth > 640);
-  const [isDesktop, setisDesktop] = useState(window.innerWidth > 1024);
+  const [isTablet, setIsTablet] = useState(false);
+  const [isDesktop, setisDesktop] = useState(false);
   const [refSection1, inView1] = useInView({
     threshold: 0.1,
     rootMargin: "100px",
@@ -26,7 +26,11 @@ export default function Home() {
     threshold: 0.1,
     rootMargin: "100px",
   });
-
+  // Accédez à la largeur de la fenêtre lors du montage initial du composant
+  useEffect(() => {
+    setIsTablet(window.innerWidth > 640);
+    setisDesktop(window.innerWidth > 1024);
+  }, []);
   // Fonction de gestionnaire de redimensionnement
   useEffect(() => {
     const handleResize = () => {
