@@ -34,10 +34,8 @@ const H5AndText: React.FC<H5AndTextProps> = ({ title, text }) => {
   );
 };
 
-const videoLink1 =
-  "https://player.vimeo.com/progressive_redirect/playback/867835899/rendition/720p/file.mp4?loc=external&signature=95238a92782907c9dc2b48e7a3868028eb9927cea7c579a285f109ac75c3fe0a";
-const videoLink2 =
-  "https://player.vimeo.com/progressive_redirect/playback/867835928/rendition/720p/file.mp4?loc=external&signature=037354ab676f274d7ef899b0cace09629ae93351545d3fe9bcc55b8dbf93decd";
+const videoLink1 = "/slideshow-02.mp4";
+const videoLink2 = "/slideshow-06.mp4";
 
 type h5andTextAndVideoProps = {
   title: string;
@@ -63,6 +61,7 @@ const H5andTextAndVideo: React.FC<h5andTextAndVideoProps> = ({ title, text, link
         ref={videoRef}
         loop
         muted
+        autoPlay
         className="w-full h-206 2xl:h-368 object-cover rounded-8 mt-32 2xl:mt-96 cursor-pointer"
       >
         <source src={linkVideo === 1 ? videoLink1 : videoLink2} type="video/mp4" />

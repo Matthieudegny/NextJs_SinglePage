@@ -24,9 +24,8 @@ type ArticleSection3Props = {
   marginTopMainSection: string;
 };
 
-const videoLink1 = "/public/timeline-01.mp4";
-const videoLink2 =
-  "https://player.vimeo.com/progressive_redirect/playback/867835859/rendition/540p/file.mp4?loc=external&signature=d0565ef23ab1c14f685f47a8e19634b25882f3284308e1af0855092bd22a73ac";
+const videoLink1 = "/timeline-01.mp4";
+const videoLink2 = "/timeline-05.mp4";
 
 const ArticleSection3: React.FC<ArticleSection3Props> = ({
   time,
@@ -106,11 +105,12 @@ const ArticleSection3: React.FC<ArticleSection3Props> = ({
           ref={videoRef}
           loop
           muted
+          autoPlay
           className={`w-full ${heightVideo} xl:w-1136  object-cover  ${
             videoLink === 1 ? "md:rounded-l-16" : "md:rounded-r-16"
           }  cursor-pointer`}
         >
-          <source src={"/timeline-01.mp4"} type="video/mp4" />
+          <source src={linkVideo} type="video/mp4" />
         </video>
       </div>
     </article>
