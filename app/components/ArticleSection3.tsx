@@ -24,8 +24,7 @@ type ArticleSection3Props = {
   marginTopMainSection: string;
 };
 
-const videoLink1 =
-  "https://player.vimeo.com/progressive_redirect/playback/868367652/rendition/1080p/file.mp4?loc=external&signature=33dfcb2bff8b3a17645cf72cdd9c7696ec1cdd8611e50af6cfdcf9d5e1907d06";
+const videoLink1 = "/public/timeline-01.mp4";
 const videoLink2 =
   "https://player.vimeo.com/progressive_redirect/playback/867835859/rendition/540p/file.mp4?loc=external&signature=d0565ef23ab1c14f685f47a8e19634b25882f3284308e1af0855092bd22a73ac";
 
@@ -111,7 +110,7 @@ const ArticleSection3: React.FC<ArticleSection3Props> = ({
             videoLink === 1 ? "md:rounded-l-16" : "md:rounded-r-16"
           }  cursor-pointer`}
         >
-          <source src={linkVideo} type="video/mp4" />
+          <source src={"/timeline-01.mp4"} type="video/mp4" />
         </video>
       </div>
     </article>
